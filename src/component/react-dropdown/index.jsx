@@ -1,5 +1,4 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable react/prop-types */
+
 import { useEffect, useRef, useState } from "react";
 import SelectedTag from "./tags";
 import sortIcon from '../../assets/sort.png';
@@ -22,7 +21,6 @@ const GridDropDown = ({data}) => {
     }, [])
     return (
         <>
-        
         <div className="grid-dropdown">
             {
                 selectedValue && selectedValue.map((item) => (<SelectedTag key={item} value={item} />))
@@ -45,16 +43,16 @@ const GridDropDown = ({data}) => {
                 setFilterData(()=>[...filterData.sort((a,b) => b.name > a.name ? 1 : -1)]) 
                 }} width={20} height={20} src={sortIcon} />
         </div>
-        {
-            filterData?.length && dropdownState &&
-            <div ref={dropdownRef}className="grid-dropdown-container">
-                {filterData.map((item) => {
-                    return  <div onClick={() => {
-                        setSelectedValue((prev)=>[...prev, item.name])
-                    }} >{item.name}</div>
-                })}
-            </div>
-        }
+            {
+                filterData?.length && dropdownState &&
+                <div ref={dropdownRef}className="grid-dropdown-container">
+                    {filterData.map((item, i) => {
+                        return  <div key={i} onClick={() => {
+                            setSelectedValue((prev)=>[...prev, item.name])
+                        }} >{item.name}</div>
+                    })}
+                </div>
+            }
         </>
     )
 }

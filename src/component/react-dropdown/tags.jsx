@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import './index.css';
 
 const SelectedTag = ({value}) => {

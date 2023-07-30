@@ -5,13 +5,10 @@ import countryJSON from './assets/JSON/country.json';
 import './App.css';
 
 function App() {
- console.log(countryJSON)
   return (
     <>
      <div>
         <ReactLayoutGrid />
-        
-        
       </div>
       <GridDropDown data={countryJSON || []} />
     </>
